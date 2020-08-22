@@ -130,10 +130,10 @@ void
 TraceEventContainer::_Node::DestroyList(_Node *head)
 {
     // The node passed to DestroyList (if any) must be the first node.
-    TF_DEV_AXIOM(!head || !head->_prev);
+    TF_DEV_AXIOM(!head || !head->A._prev);
 
     while (head) {
-        _Node *next = head->_next;
+        _Node *next = head->A._next;
         head->~_Node();
         free(head);
         head = next;
@@ -141,10 +141,7 @@ TraceEventContainer::_Node::DestroyList(_Node *head)
 }
 
 TraceEventContainer::_Node::_Node(TraceEvent *end, size_t capacity)
-    : _end(end)
-    , _sentinel(end+capacity)
-    , _prev(nullptr)
-    , _next(nullptr)
+    : A{ end, end + capacity, nullptr,nullptr }
 {
 }
 
@@ -161,24 +158,24 @@ TraceEventContainer::_Node::Join(_Node *lhs, _Node *rhs)
     TF_DEV_AXIOM(lhs);
     TF_DEV_AXIOM(rhs);
     // lhs must be the last node in its list and rhs must be the first.
-    TF_DEV_AXIOM(!lhs->_next);
-    TF_DEV_AXIOM(!rhs->_prev);
+    TF_DEV_AXIOM(!lhs->A._next);
+    TF_DEV_AXIOM(!rhs->A._prev);
 
-    lhs->_next = rhs;
-    rhs->_prev = lhs;
+    lhs->A._next = rhs;
+    rhs->A._prev = lhs;
 }
 
 inline void
 TraceEventContainer::_Node::Unlink()
 {
-    if (_prev) {
-        _prev->_next = _next;
+    if (A._prev) {
+        A._prev->A._next = A._next;
     }
-    if (_next) {
-        _next->_prev = _prev;
+    if (A._next) {
+        A._next->A._prev = A._prev;
     }
-    _prev = nullptr;
-    _next = nullptr;
+    A._prev = nullptr;
+    A._next = nullptr;
 }
 
 PXR_NAMESPACE_CLOSE_SCOPE
