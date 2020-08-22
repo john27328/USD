@@ -406,7 +406,7 @@ public:
         return false;
     }
 
-    bool StoreValue(const SdfValueBlock& block)
+    bool StoreValue(const SdfValueBlock& /*block*/)
     {
         isValueBlock = true;
         return true;

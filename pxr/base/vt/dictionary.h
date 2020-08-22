@@ -161,7 +161,7 @@ public:
     VtDictionary() {}
 
     /// Creates an empty \p VtDictionary with at least \p size buckets.
-    explicit VtDictionary(int size) {}
+    explicit VtDictionary(int /*size*/) {}
 
     /// Creates a \p VtDictionary with a copy of a range. 
     template<class _InputIterator>

@@ -207,9 +207,9 @@ public:
 
     /// Multiplication by scalar.
     GfVec3f &operator*=(double s) {
-        _data[0] *= s;
-        _data[1] *= s;
-        _data[2] *= s;
+        _data[0] *= static_cast<float> (s);
+        _data[1] *= static_cast<float> (s);
+        _data[2] *= static_cast<float> (s);
         return *this;
     }
     GfVec3f operator*(double s) const {
@@ -330,9 +330,9 @@ PXR_NAMESPACE_OPEN_SCOPE
 inline
 GfVec3f::GfVec3f(class GfVec3d const &other)
 {
-    _data[0] = other[0];
-    _data[1] = other[1];
-    _data[2] = other[2];
+    _data[0] = static_cast<float> (other[0]);
+    _data[1] = static_cast<float> (other[1]);
+    _data[2] = static_cast<float> (other[2]);
 }
 inline
 GfVec3f::GfVec3f(class GfVec3h const &other)
@@ -344,9 +344,9 @@ GfVec3f::GfVec3f(class GfVec3h const &other)
 inline
 GfVec3f::GfVec3f(class GfVec3i const &other)
 {
-    _data[0] = other[0];
-    _data[1] = other[1];
-    _data[2] = other[2];
+    _data[0] = static_cast<float> (other[0]);
+    _data[1] = static_cast<float> (other[1]);
+    _data[2] = static_cast<float> (other[2]);
 }
 
 /// Returns component-wise multiplication of vectors \p v1 and \p v2.

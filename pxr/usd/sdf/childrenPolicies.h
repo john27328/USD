@@ -84,7 +84,7 @@ public:
         return parentPath.AppendChild(key);
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->PrimChildren;
     }
 };
@@ -102,7 +102,7 @@ public:
         }
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->PropertyChildren;
     }
 
@@ -124,7 +124,7 @@ public:
         }
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->PropertyChildren;
     }
 
@@ -142,7 +142,7 @@ public:
         return parentPath.AppendProperty(key);
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->PropertyChildren;
     }
 
@@ -160,7 +160,7 @@ public:
         return parentPath.AppendMapperArg(key);
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->MapperArgChildren;
     }
 };
@@ -169,11 +169,11 @@ class Sdf_ExpressionChildPolicy :
     public Sdf_TokenChildPolicy<SdfSpecHandle>
 {
 public:
-    static SdfPath GetChildPath(const SdfPath &parentPath, const FieldType &key) {
+    static SdfPath GetChildPath(const SdfPath &parentPath, const FieldType& /*key*/) {
         return parentPath.AppendExpression();
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->ExpressionChildren;
     }
 };
@@ -195,7 +195,7 @@ public:
         return childPath.GetParentPath().AppendVariantSelection(variantSet, "");
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->VariantChildren;
     }
 };
@@ -209,7 +209,7 @@ public:
         return parentPath.AppendVariantSelection(key, "");
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->VariantSetChildren;
     }
 };
@@ -266,7 +266,7 @@ public:
         return targetPath.MakeAbsolutePath(childPath.GetPrimPath());
     }
 
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->MapperChildren;
     }
 };
@@ -274,7 +274,7 @@ public:
 class Sdf_AttributeConnectionChildPolicy :
     public Sdf_PathChildPolicy<SdfSpecHandle> {
 public:
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->ConnectionChildren;
     }
 };
@@ -283,7 +283,7 @@ class Sdf_RelationshipTargetChildPolicy :
     public Sdf_PathChildPolicy<SdfSpecHandle> {
 
 public:
-    static TfToken GetChildrenToken(const SdfPath& parentPath) {
+    static TfToken GetChildrenToken(const SdfPath& /*parentPath*/) {
         return SdfChildrenKeys->RelationshipTargetChildren;
     }
 };

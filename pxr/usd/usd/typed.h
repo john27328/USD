@@ -76,7 +76,7 @@ public:
     /// class and all its ancestor classes.  Does not include attributes that
     /// may be authored by custom/extended methods of the schemas involved.
     static const TfTokenVector &
-    GetSchemaAttributeNames(bool includeInherited=true) {
+    GetSchemaAttributeNames(bool /*includeInherited=true*/) {
         /* This only exists for consistency */
         static TfTokenVector names;
         return names;

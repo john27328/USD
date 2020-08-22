@@ -58,7 +58,7 @@ class TraceStringHash {
 
 // Template recursion base case.
 template <>
-constexpr std::uint32_t TraceStringHash::djb2HashStr<0>(const char* str) {
+constexpr std::uint32_t TraceStringHash::djb2HashStr<0>(const char* /*str*/) {
     return 5381;
 }
 

@@ -207,10 +207,10 @@ public:
 
     /// Multiplication by scalar.
     GfVec4i &operator*=(double s) {
-        _data[0] *= s;
-        _data[1] *= s;
-        _data[2] *= s;
-        _data[3] *= s;
+        _data[0] *= static_cast<int> (s);
+        _data[1] *= static_cast<int> (s);
+        _data[2] *= static_cast<int> (s);
+        _data[3] *= static_cast<int> (s);
         return *this;
     }
     GfVec4i operator*(double s) const {

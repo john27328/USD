@@ -144,7 +144,7 @@ public:
     //@}
 
     static const TfTokenVector &
-    GetSchemaAttributeNames(bool includeInherited=true)
+    GetSchemaAttributeNames(bool /*includeInherited=true*/)
     {
         /* This only exists for consistency */
         static TfTokenVector names;

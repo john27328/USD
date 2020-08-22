@@ -62,7 +62,7 @@ class TraceEventContainer {
         static void Join(_Node *lhs, _Node *rhs);
 
         // Returns true if the node cannot hold any more events.
-        bool IsFull() const { return _end == _sentinel; }
+        bool IsFull() const { return A._end == A._sentinel; }
 
         const_iterator begin() const {
             const char *p = reinterpret_cast<const char *>(this);
@@ -71,27 +71,27 @@ class TraceEventContainer {
         }
 
         const_iterator end() const {
-            return _end;
+            return A._end;
         }
 
         _Node *GetPrevNode() {
-            return _prev;
+            return A._prev;
         }
 
         const _Node *GetPrevNode() const {
-            return _prev;
+            return A._prev;
         }
 
         _Node *GetNextNode() {
-            return _next;
+            return A._next;
         }
 
         const _Node *GetNextNode() const {
-            return _next;
+            return A._next;
         }
 
         void ClaimEventEntry() {
-            ++_end;
+            ++A._end;
         }
 
         // Remove this node from the linked list to which it belongs.
@@ -108,7 +108,7 @@ class TraceEventContainer {
                 TraceEvent *_sentinel;
                 _Node *_prev;
                 _Node *_next;
-            };
+            } A;
             // Ensure that _Node is aligned to at least the alignment of
             // TraceEvent.
             alignas(TraceEvent) char _unused;

@@ -567,7 +567,7 @@ PXR_NAMESPACE_CLOSE_SCOPE
     }                                                                         \
                                                                               \
     /* Required due to the placement-new override above. */                   \
-    inline void operator delete(void* ptr, void* place) {}                    \
+    inline void operator delete(void* /*ptr*/, void* /*place*/) {}            \
                                                                               \
     inline void operator delete(void* ptr, size_t) {                          \
         free(ptr);                                                            \

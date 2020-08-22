@@ -572,11 +572,11 @@ extern SDF_API TfStaticData<const Sdf_ValueTypeNamesType,
 /// \endcode
 ///
 struct SdfValueBlock { 
-    bool operator==(const SdfValueBlock& block) const { return true; }
-    bool operator!=(const SdfValueBlock& block) const { return false; }
+    bool operator==(const SdfValueBlock& /*block*/) const { return true; }
+    bool operator!=(const SdfValueBlock& /*block*/) const { return false; }
 
 private:
-    friend inline size_t hash_value(const SdfValueBlock &block) { return 0; }
+    friend inline size_t hash_value(const SdfValueBlock& /*block*/) { return 0; }
 };
 
 // Write out the string representation of a block.

@@ -486,7 +486,7 @@ private:
     }
 
     // Base case to terminate template recursion
-    void _StoreDataRec(_PerThreadData* threadData, TraceCategoryId cat) {}
+    void _StoreDataRec(_PerThreadData* /*threadData*/, TraceCategoryId /*cat*/) {}
 
 
     // Thread-local storage, accessed via _GetThreadData()

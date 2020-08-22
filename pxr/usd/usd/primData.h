@@ -476,7 +476,7 @@ Usd_PrimData::_GetSubtreeRange() const
 // \p proxyPrimPath represents an instance proxy.
 template <class PrimDataPtr>
 inline bool
-Usd_IsInstanceProxy(const PrimDataPtr &p, const SdfPath &proxyPrimPath)
+Usd_IsInstanceProxy(const PrimDataPtr& /*p*/, const SdfPath &proxyPrimPath)
 {
     return !proxyPrimPath.IsEmpty();
 }

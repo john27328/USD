@@ -471,8 +471,8 @@ half::half (float f)
 	    // bits and combine it with the sign and exponent.
 	    //
 
-	    int m = x.i & 0x007fffff;
-	    _h = e + ((m + 0x00000fff + ((m >> 13) & 1)) >> 13);
+        unsigned short m = static_cast<unsigned short> (x.i & 0x007fffff);
+	    _h = static_cast<unsigned short> (e) + ((m + 0x00000fff + ((m >> 13) & 1)) >> 13);
 	}
 	else
 	{

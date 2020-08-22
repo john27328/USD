@@ -223,7 +223,7 @@ protected:
         : _parent(parent)
         , _refCount(1)
         , _elementCount(parent ? parent->_elementCount + 1 : 1)
-        , _nodeType(nodeType)
+        , _nodeType(static_cast<unsigned char> (nodeType))
         , _isAbsolute(parent && parent->IsAbsolutePath())
         , _containsPrimVariantSelection(
             nodeType == PrimVariantSelectionNode ||

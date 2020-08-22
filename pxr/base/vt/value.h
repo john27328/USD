@@ -507,10 +507,10 @@ class VtValue
         static VtValue GetProxiedAsVtValue(T const &obj) {
             return VtValue(VtGetProxiedObject(obj));
         }
-        static bool HoldsType(T const &tp, std::type_info const &query) {
+        static bool HoldsType(T const& /*tp*/, std::type_info const &query) {
             return TfSafeTypeCompare(typeid(ProxiedType), query);
         }
-        static TfType GetTfType(T const &tp) {
+        static TfType GetTfType(T const /*&tp*/) {
             return TfType::Find<ProxiedType>();
         }
         static void const *GetObjPtr(T const &tp) {
